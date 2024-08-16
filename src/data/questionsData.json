@@ -1,0 +1,113 @@
+{
+  "questions": [
+    {
+      "id": "question_fullscreen_01",
+      "type": "FullScreenClick",
+      "randomize": true,
+      "prompts": [
+        {
+          "id": "prompt_01",
+          "prompt": "Click anywhere on the screen to advance.",
+          "response": "Nice click, you did it! Let’s move on to the next question."
+        },
+        {
+          "id": "prompt_02",
+          "prompt": "Try clicking anywhere to continue.",
+          "response": "Great job! You're amazing."
+        },
+        {
+          "id": "prompt_03",
+          "prompt": "One more time, click anywhere to move on.",
+          "response": "Good job friend! The journey continues."
+        }
+      ],
+      "nextQuestion": "question_targets_02"
+    },
+    {
+      "id": "question_targets_02",
+      "type": "InteractiveTargets",
+      "completionCriteria": "allTargetsClicked",
+      "prompt": "Select the correct targets by clicking or hovering over them.",
+      "targets": [
+        {
+          "id": "target_01_click",
+          "action": "click",
+          "answerType": "Correct",
+          "isMandatory": true,
+          "response": "Correct! Well done.",
+          "visualFeedback": {
+            "type": "highlight",
+            "color": "green"
+          },
+          "tactileFeedback": {
+            "type": "vibration",
+            "duration": "200ms"
+          }
+        },
+        {
+          "id": "target_02_hover",
+          "action": "hover",
+          "answerType": "Incorrect",
+          "response": "Oops, that’s not right. Try again.",
+          "visualFeedback": {
+            "type": "shake"
+          },
+          "tactileFeedback": {
+            "type": "vibration",
+            "duration": "500ms",
+            "pattern": "short"
+          }
+        },
+        {
+          "id": "target_03_click",
+          "action": "click",
+          "answerType": "Incorrect",
+          "response": "Not quite, give it another shot.",
+          "visualFeedback": {
+            "type": "flash",
+            "color": "red"
+          },
+          "tactileFeedback": {
+            "type": "vibration",
+            "duration": "500ms",
+            "pattern": "long"
+          }
+        },
+        {
+          "id": "target_04_hover",
+          "action": "hover",
+          "answerType": "Neutral",
+          "response": "You hovered over this, but it’s not the right choice.",
+          "visualFeedback": {
+            "type": "fade",
+            "color": "yellow"
+          },
+          "tactileFeedback": {
+            "type": "vibration",
+            "duration": "300ms"
+          }
+        }
+      ],
+      "hints": [
+        "Try hovering over the targets to see what happens.",
+        "Remember, some targets may require a click to select."
+      ],
+      "idleFeedback": {
+        "message": "If you’re stuck, click Fly guy.",
+        "timeout": 30000
+      },
+      "finalFeedback": {
+        "feedbackType": "positive",
+        "message": "Great job! Let's keep reading.",
+        "visualFeedback": {
+          "type": "confetti"
+        },
+        "tactileFeedback": {
+          "type": "vibration",
+          "duration": "1000ms",
+          "pattern": "celebration"
+        }
+      }
+    }
+  ]
+}
